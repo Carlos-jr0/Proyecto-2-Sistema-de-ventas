@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="454.0" prefWidth="600.0" style="-fx-background-color: #052e66;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ventas.SistemaVentasController">
+   <children>
+      <AnchorPane prefHeight="60.0" prefWidth="600.0" style="-fx-background-color: #052e66;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox prefHeight="61.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Separator prefHeight="22.0" prefWidth="40.0" visible="false" />
+                  <Button mnemonicParsing="false" onAction="#clienteClicked" prefHeight="25.0" prefWidth="74.0" text="Cliente">
+                     <HBox.margin>
+                        <Insets top="15.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Separator prefHeight="26.0" prefWidth="40.0" visible="false" />
+                  <Button mnemonicParsing="false" onAction="#productoClicked" prefHeight="25.0" prefWidth="75.0" text="Producto">
+                     <HBox.margin>
+                        <Insets top="15.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Separator prefHeight="27.0" prefWidth="40.0" visible="false" />
+                  <Button mnemonicParsing="false" onAction="#ordenClicked" text="Ordenes de compra">
+                     <HBox.margin>
+                        <Insets top="15.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Separator prefHeight="26.0" prefWidth="40.0" visible="false" />
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="clientePanel" layoutY="78.0" prefHeight="375.0" prefWidth="600.0" style="-fx-background-color: #052e66;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Label layoutX="45.0" layoutY="34.0" text="Nombre: " textFill="#f8f7fc" />
+            <Label layoutX="46.0" layoutY="75.0" text="Apellido:" textFill="#f8f7fc" />
+            <Label layoutX="45.0" layoutY="112.0" text="Telefono:" textFill="#f8f7fc" />
+            <Label layoutX="44.0" layoutY="153.0" prefHeight="17.0" prefWidth="59.0" text="Direccion:" textFill="#f8f7fc" />
+            <TextField layoutX="134.0" layoutY="30.0" />
+            <TextField layoutX="134.0" layoutY="71.0" />
+            <TextField layoutX="134.0" layoutY="108.0" />
+            <TextField layoutX="134.0" layoutY="149.0" />
+            <Button layoutX="44.0" layoutY="188.0" mnemonicParsing="false" text="Agregar" />
+            <Button layoutX="128.0" layoutY="188.0" mnemonicParsing="false" text="Modificar" />
+            <Button layoutX="209.0" layoutY="188.0" mnemonicParsing="false" text="Eliminar" />
+            <TableView layoutX="42.0" layoutY="224.0" prefHeight="136.0" prefWidth="523.0">
+               <columns>
+                  <TableColumn prefWidth="42.0" text="ID" />
+                  <TableColumn prefWidth="102.0" text="Nombre" />
+                  <TableColumn prefWidth="103.0" text="Apellido" />
+                  <TableColumn prefWidth="107.0" text="Telefono" />
+                  <TableColumn prefWidth="167.0" text="Direccion" />
+               </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="productoPanel" layoutY="84.0" prefHeight="375.0" prefWidth="600.0" style="-fx-background-color: #052e66;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Label layoutX="45.0" layoutY="23.0" text="Codigo:" textFill="#f5eded" />
+            <Label layoutX="47.0" layoutY="58.0" text="Nombre:" textFill="#f5eded" />
+            <Label layoutX="46.0" layoutY="96.0" text="Precio unitario:" textFill="#f5eded" />
+            <Label layoutX="46.0" layoutY="134.0" text="Cantidad" textFill="#f5eded" />
+            <Label layoutX="46.0" layoutY="173.0" text="Descuento por mayor:" textFill="#f5eded" />
+            <TextField layoutX="183.0" layoutY="19.0" />
+            <TextField layoutX="183.0" layoutY="54.0" />
+            <TextField layoutX="183.0" layoutY="92.0" />
+            <TextField layoutX="183.0" layoutY="130.0" />
+            <TextField layoutX="183.0" layoutY="169.0" />
+            <Button layoutX="45.0" layoutY="201.0" mnemonicParsing="false" text="Agregar" />
+            <Button layoutX="124.0" layoutY="201.0" mnemonicParsing="false" text="Modificar" />
+            <Button layoutX="214.0" layoutY="201.0" mnemonicParsing="false" text="Eliminar" />
+            <TableView layoutX="49.0" layoutY="236.0" prefHeight="125.0" prefWidth="523.0">
+               <columns>
+                  <TableColumn prefWidth="39.0" text="ID" />
+                  <TableColumn prefWidth="95.0" text="Codigo" />
+                  <TableColumn prefWidth="95.0" text="Nombre" />
+                  <TableColumn prefWidth="71.0" text="Precio" />
+                  <TableColumn prefWidth="75.0" text="Cantida" />
+                  <TableColumn prefWidth="75.0" text="Descuento" />
+               </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="ordenPanel" layoutY="81.0" prefHeight="375.0" prefWidth="600.0" style="-fx-background-color: #052e66;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <TextField layoutX="163.0" layoutY="32.0" />
+            <TextField layoutX="163.0" layoutY="63.0" />
+            <TextField layoutX="163.0" layoutY="94.0" />
+            <TextField layoutX="163.0" layoutY="125.0" />
+            <TextField layoutX="163.0" layoutY="156.0" />
+            <TextField layoutX="163.0" layoutY="188.0" />
+            <Label layoutX="37.0" layoutY="36.0" prefHeight="17.0" prefWidth="59.0" text="Cliente" textFill="#fcf9f9" />
+            <Label layoutX="35.0" layoutY="67.0" prefHeight="17.0" prefWidth="80.0" text="No. de Orden:" textFill="#fcf9f9" />
+            <Label layoutX="35.0" layoutY="98.0" prefHeight="17.0" prefWidth="91.0" text="Fecha de envio:" textFill="#fcf9f9" />
+            <Label layoutX="35.0" layoutY="129.0" prefHeight="17.0" prefWidth="91.0" text="Precio de envio:" textFill="#fcf9f9" />
+            <Label layoutX="35.0" layoutY="160.0" prefHeight="17.0" prefWidth="91.0" text="Tipo de envio:" textFill="#fcf9f9" />
+            <Label layoutX="35.0" layoutY="192.0" prefHeight="17.0" prefWidth="59.0" text="Total:" textFill="#fcf9f9" />
+            <TableView layoutX="38.0" layoutY="230.0" prefHeight="125.0" prefWidth="530.0">
+               <columns>
+                  <TableColumn prefWidth="37.0" text="ID" />
+                  <TableColumn prefWidth="69.0" text="Cliente" />
+                  <TableColumn prefWidth="73.0" text="No. orden" />
+                  <TableColumn prefWidth="94.0" text="Fecha de envio" />
+                  <TableColumn text="Precio envio" />
+                  <TableColumn prefWidth="84.0" text="Tipo de envio" />
+                  <TableColumn prefWidth="90.0" text="Total a pagar" />
+               </columns>
+            </TableView>
+            <Button layoutX="338.0" layoutY="188.0" mnemonicParsing="false" text="Agregar" />
+            <Button layoutX="414.0" layoutY="188.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="74.0" text="Modificar" />
+            <Button layoutX="506.0" layoutY="188.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="59.0" text="Eliminar" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
