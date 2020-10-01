@@ -1,11 +1,11 @@
-        /*
-         * To change this license header, choose License Headers in Project Properties.
-         * To change this template file, choose Tools | Templates
-         * and open the template in the editor.
-         */
-        package ventas;
+       
+    package ventas;
+   /**
+    *
+    * @author Alvarado Montes
+    */
 
-        public class Cliente {
+         public class Cliente {
             private String nombre;
             private String apellido;
             private String noTelefono;
@@ -17,14 +17,13 @@
               this.id=sigIdCliente++;
             }
 
-            public Cliente(String nombre, String apellido, String noTelefono, String direccion, int id) {
+            public Cliente(String nombre, String apellido, String noTelefono, String direccion) {
+                this.id=sigIdCliente++;
                 this.nombre = nombre;
                 this.apellido = apellido;
                 this.noTelefono = noTelefono;
                 this.direccion = direccion;
-                this.id=id;
-
-
+               
             }
 
             public String getNombre() {
@@ -67,9 +66,14 @@
                 this.id = id;
             }
 
-            public String toString(){
-                return null;
+        @Override
+        public String toString() {
+        return "[Cliente]" +
+                "Id=" + id +
+                "Nombre=" + nombre +
+                "Apellido=" + apellido +
+                "No. Telefono=" + noTelefono +
+                "Direccion=" + direccion;
+    }
 
-            }
-
-        }
+ }
