@@ -1,0 +1,43 @@
+
+Documentacion tecnica para la elaboracion del proyecto sistema de ventas: 
+
+1. Analizar el proyecto
+
+2. Creacion del proyecto en IDE Netbeans
+
+3. Creacion de un nuevo repositorio en GitHub para subir el proyecto.
+
+4. Crear nuevo proyecto en Netbeans llamado Ventas
+
+5. Crear clase Cliente(Propiedades, constructores y metodos).
+
+6. Crear Subclases de la clase Cliente(Individual, Empresa).
+
+7. Clase Individual(Propiedades, constructores y metodos).
+
+8. Clase Empresa(Propiedades, constructores y metodos).
+
+9. Clase DataSistema(Guardar los datos de las clases Individual, Empresa y Orden).
+
+10. Crear una interfaz grafica de usuario en JavaFx.
+
+11. Clase SistemasVentas(Codigo de GUI).
+- Uso de Paneles
+- Uso de Botones
+- Uso de HBox
+- Uso de Separadores
+- Uso de Label
+- Uso de TextField
+- Uso de TableView
+- Uso de Columns
+- Uso de TableColumn
+
+12. Clase SistemaVentasController(Controlador par las acciones del interfaz grafica de usuario).
+
+13. Clase Ventas(Menu principal para correr el proyecto).
+
+14. Crear Clase Producto(Propiedades, constructor y metodo).
+
+15. Crear Clase Orden(Propiedades, constructores y metodos).
+
+16. Crear Clase ItemOrden(Propiedades, constructores y metodos).

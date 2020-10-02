@@ -4,12 +4,15 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Alvarado%20Montes/Documents/NetBeansProjects/Ventas/src/ventas/SistemaVentasController.java</file>
+            <file>file:/C:/Users/Alvarado%20Montes/Documents/NetBeansProjects/Ventas/src/ventas/ItemOrden.java</file>
             <file>file:/C:/Users/Alvarado%20Montes/Documents/NetBeansProjects/Ventas/src/ventas/Cliente.java</file>
             <file>file:/C:/Users/Alvarado%20Montes/Documents/NetBeansProjects/Ventas/src/ventas/DataSistema.java</file>
+            <file>file:/C:/Users/Alvarado%20Montes/Documents/NetBeansProjects/Ventas/src/ventas/Orden.java</file>
             <file>file:/C:/Users/Alvarado%20Montes/Documents/NetBeansProjects/Ventas/src/ventas/SistemaVentas.fxml</file>
             <file>file:/C:/Users/Alvarado%20Montes/Documents/NetBeansProjects/Ventas/src/ventas/Individual.java</file>
             <file>file:/C:/Users/Alvarado%20Montes/Documents/NetBeansProjects/Ventas/src/ventas/Empresa.java</file>
             <file>file:/C:/Users/Alvarado%20Montes/Documents/NetBeansProjects/Ventas/src/ventas/Ventas.java</file>
+            <file>file:/C:/Users/Alvarado%20Montes/Documents/NetBeansProjects/Ventas/src/ventas/Producto.java</file>
         </group>
     </open-files>
 </project-private>

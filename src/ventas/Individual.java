@@ -8,8 +8,8 @@ package ventas;
 public class Individual extends Cliente {
     private String dpi;
 
-    public Individual(String nombre, String apellido, String noTelefono, String direccion, String dpi) {
-        super(nombre, apellido, noTelefono, direccion);
+    public Individual(String nombre, String apellido, String direccion, String dpi) {
+        super(nombre, apellido, direccion);
         this.dpi = dpi;
     }
     

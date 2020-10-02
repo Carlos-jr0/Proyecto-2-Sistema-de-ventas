@@ -9,8 +9,8 @@ public class Empresa extends Cliente{
     private String contacto;
     private int descuento;
 
-    public Empresa(String nombre, String apellido, String noTelefono, String direccion, String contacto, int descuento) {
-        super(nombre, apellido, noTelefono, direccion);
+    public Empresa(String nombre, String apellido, String direccion, String contacto, int descuento) {
+        super(nombre, apellido, direccion);
         this.contacto=contacto;
         this.descuento=descuento;
     }
