@@ -19,7 +19,7 @@ public class Ventas extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("SistemaVentas.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("ValidarUsuario.fxml"));
         stage.setTitle("Sistema de Ventas");
         Scene scene = new Scene(root);
         

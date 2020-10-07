@@ -10,10 +10,9 @@ public class ItemOrden {
     private int cantidad;
     private Producto producto;
 
-    public ItemOrden(int pNoLinea, int pCantidad, Producto pIdProducto) {
+    public ItemOrden(int pNoLinea, int pCantidad, int pIdProducto) {
         this.noLinea = pNoLinea;
         this.cantidad = pCantidad;
-        this.producto=pIdProducto;
         
     }
 
@@ -43,7 +42,7 @@ public class ItemOrden {
 
     @Override
     public String toString() {
-        return "[ItemOrden]" + "noLinea=" + noLinea + ", cantidad=" + cantidad + ", producto=" + producto + '}';
+        return "[ItemOrden]" + "noLinea=" + noLinea + ", cantidad=" + cantidad ;
     }
    
     

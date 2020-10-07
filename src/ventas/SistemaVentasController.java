@@ -46,8 +46,8 @@ public class SistemaVentasController implements Initializable {
     private TextField txtDpi;
     @FXML
     private TableView<Individual> tblClientesIndividuales;
-    @FXML
-    private TableColumn columId;
+     @FXML
+    private TableColumn columIdI;
     @FXML
     private TableColumn columNombre;
     @FXML
@@ -68,6 +68,8 @@ public class SistemaVentasController implements Initializable {
     private TextField txtContactoEmp;
     @FXML
     private TableView<Empresa> tblClientesEmpresas;
+    @FXML
+    private TableColumn columIdE;
     @FXML
     private TableColumn colIdEmp;
     @FXML
@@ -107,12 +109,46 @@ public class SistemaVentasController implements Initializable {
     @FXML
     private TableColumn ColumCantidadProducto;
     private ObservableList<Producto> producto;    
-   
+    @FXML
+    private TextField txtClienteOrden;
+    @FXML
+    private TextField txtProductoOrden;
+    @FXML
+    private TextField txtDiasEnvio;
+    @FXML
+    private TextField txtPrecioEnvio;
+    @FXML
+    private TextField txtTipoEnvio;
+    @FXML
+    private TextField txtEstado;
+    @FXML
+    private TableColumn columnaId;
+    @FXML
+    private TableColumn columnaClienteOrden;
+    @FXML
+    private TableColumn columnaProductoOrden;
+    @FXML
+    private TableColumn columnaDiasEnvio;
+    @FXML
+    private TableColumn columnaPrecioEnvio;
+    @FXML
+    private TableColumn columnaTipoEnvio;
+    @FXML
+    private TableColumn columnaEstado;
+    @FXML
+    private TableColumn columnaFecha;
+    @FXML
+    private TableColumn columnaTotal;
+    @FXML
+    private TableView<Orden> tblOrdenDeCompra;
+    private ObservableList<Orden> orden;
+    
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
        //Agregar datos a tabla clientes individuales
         individual=FXCollections.observableArrayList();
-        this.columId.setCellValueFactory(new PropertyValueFactory("id"));
+        this.columIdI.setCellValueFactory(new PropertyValueFactory("id"));
         this.columNombre.setCellValueFactory(new PropertyValueFactory("nombre"));
         this.columApellido.setCellValueFactory(new PropertyValueFactory("apellido"));
         this.columDireccion.setCellValueFactory(new PropertyValueFactory("direccion"));
@@ -127,23 +163,29 @@ public class SistemaVentasController implements Initializable {
         this.colDescuentoEmp.setCellValueFactory(new PropertyValueFactory("descuento"));
      //Agregar datos a la tabla de productos
         producto=FXCollections.observableArrayList();
-        this.columId.setCellValueFactory(new PropertyValueFactory("id"));
+        this.columIdE.setCellValueFactory(new PropertyValueFactory("id"));
         this.columCodigoProducto.setCellValueFactory(new PropertyValueFactory("codigo"));
         this.columNombreProducto.setCellValueFactory(new PropertyValueFactory("nombreProducto"));
         this.columPrecioUnitario.setCellValueFactory(new PropertyValueFactory("precioUnitario"));
         this.columPrecioMayor.setCellValueFactory(new PropertyValueFactory("precioPorMayor"));
         this.ColumCantidadProducto.setCellValueFactory(new PropertyValueFactory("cantidad"));
+      //Agregar datos a la tabla de Ordenes de compra  
+        orden=FXCollections.observableArrayList();
+        this.columnaId.setCellValueFactory(new PropertyValueFactory("id"));
+        this.columnaClienteOrden.setCellValueFactory(new PropertyValueFactory("pCliente"));
+        this.columnaProductoOrden.setCellValueFactory(new PropertyValueFactory("pIdProducto"));
+        this.columnaDiasEnvio.setCellValueFactory(new PropertyValueFactory("diasEnvio"));
+        this.columnaPrecioEnvio.setCellValueFactory(new PropertyValueFactory("precioEnvio"));
+        this.columnaTipoEnvio.setCellValueFactory(new PropertyValueFactory("tipoEnvio"));
+        this.columnaEstado.setCellValueFactory(new PropertyValueFactory("estado"));
+        this.columnaFecha.setCellValueFactory(new PropertyValueFactory("fechaOrden"));
+        this.columnaTotal.setCellValueFactory(new PropertyValueFactory("precioEnvio"));
     }    
     //agregar datos a la tabla de clientes individuales
     @FXML
     private void agregarClientes(ActionEvent event) {
-        String nombre=this.txtNombre.getText();
-        String apellido=this.txtApellido.getText();
-        String direccion=this.txtDireccion.getText();
-        String dpi=this.txtDpi.getText();
-        
-        Individual i=new Individual(nombre, apellido, direccion, dpi);
-        
+        Individual i=new Individual(this.txtNombre.getText(), this.txtApellido.getText(),
+                this.txtDireccion.getText(), this.txtDpi.getText());
         if(!this.individual.contains(i)){
             this.individual.add(i);
             this.tblClientesIndividuales.setItems(individual);
@@ -178,12 +220,8 @@ public class SistemaVentasController implements Initializable {
             alert.setContentText("Por favor seleccionar un cliente");
             alert.showAndWait(); 
         }else{
-            String nombre=this.txtNombre.getText();
-            String apellido=this.txtApellido.getText();
-            String direccion=this.txtDireccion.getText();
-            String dpi=this.txtDpi.getText();
-            
-            Individual aux=new Individual(nombre, apellido, direccion, dpi);
+            Individual aux=new Individual(this.txtNombre.getText(),this.txtApellido.getText(), 
+                    this.txtDireccion.getText(), txtDpi.getText());
             
             if(!this.individual.contains(aux)){
                 i.setNombre(aux.getNombre());
@@ -229,14 +267,9 @@ public class SistemaVentasController implements Initializable {
     }
     //agregar datos a la tabla de clientes de empresas
     @FXML
-    private void agregarClientesEmpresas(ActionEvent event) {
-      String nombre=this.txtNombreEm.getText();
-        String apellido=this.txtApellidoEmp.getText();
-        String direccion=this.txtDireccionEmp.getText();
-        String contacto=this.txtContactoEmp.getText();
-        int descuento=Integer.parseInt(this.txtDescuestoEmp.getText());
-        
-        Empresa e= new Empresa(nombre, apellido, direccion, contacto, descuento);
+    private void agregarClientesEmpresas(ActionEvent event) { 
+        Empresa e= new Empresa(this.txtNombreEm.getText(), this.txtApellidoEmp.getText(), this.txtDireccionEmp.getText(),
+        this.txtContactoEmp.getText(), Integer.parseInt(this.txtDescuestoEmp.getText()));
         
         if(!this.empresa.contains(e)){
             this.empresa.add(e);
@@ -271,13 +304,8 @@ public class SistemaVentasController implements Initializable {
             alert.setContentText("Por favor seleccionar un cliente");
             alert.showAndWait(); 
         }else{
-            String nombre=this.txtNombreEm.getText();
-            String apellido=this.txtApellidoEmp.getText();
-            String direccion=this.txtDireccionEmp.getText();
-            String contacto=this.txtContactoEmp.getText();
-            int descuento=Integer.parseInt(this.txtDescuestoEmp.getText());
-            
-            Empresa aux=new Empresa(nombre, apellido, direccion, contacto, descuento);
+            Empresa aux=new Empresa(this.txtNombreEm.getText(), this.txtApellidoEmp.getText(), this.txtDireccionEmp.getText(),
+            this.txtContactoEmp.getText(), Integer.parseInt(this.txtDescuestoEmp.getText()));
             
             if(!this.empresa.contains(aux)){
                 e.setNombre(aux.getNombre());
@@ -326,13 +354,9 @@ public class SistemaVentasController implements Initializable {
     //agregar datos a la tabla de producto
     @FXML
     private void agregarProducto(ActionEvent event) {
-        int codigo=Integer.parseInt(this.txtCodigoProducto.getText());
-        String nombreProducto=this.txtNombreProducto.getText();
-        double precioUnitario=Double.parseDouble(this.txtPrecioUnitario.getText());
-        double precioMayor=Double.parseDouble(this.txtPrecioMayor.getText());
-        int cantidad=Integer.parseInt(this.txtCantidadProducto.getText());
-        
-            Producto p=new Producto(codigo, nombreProducto, precioUnitario, precioMayor, cantidad );
+            Producto p=new Producto(Integer.parseInt(this.txtCodigoProducto.getText()), this.txtNombreProducto.getText(),
+            Double.parseDouble(this.txtPrecioUnitario.getText()), Double.parseDouble(this.txtPrecioMayor.getText()),
+            Integer.parseInt(this.txtCantidadProducto.getText()));
         
         if(!this.producto.contains(p)){
             this.producto.add(p);
@@ -369,13 +393,9 @@ public class SistemaVentasController implements Initializable {
             alert.setContentText("Por favor seleccionar un producto");
             alert.showAndWait(); 
         }else{
-            int codigo=Integer.parseInt(this.txtCodigoProducto.getText());
-            String nombreProducto=this.txtNombreProducto.getText();
-            double precioUnitario=Double.parseDouble(this.txtPrecioUnitario.getText());
-            double precioMayor=Double.parseDouble(this.txtPrecioMayor.getText());
-            int cantidad=Integer.parseInt(this.txtCantidadProducto.getText());
-            
-            Producto aux=new Producto(codigo, nombreProducto, precioUnitario, precioMayor, cantidad);
+            Producto aux=new Producto(Integer.parseInt(this.txtCodigoProducto.getText()), this.txtNombreProducto.getText(),
+            Double.parseDouble(this.txtPrecioUnitario.getText()), Double.parseDouble(this.txtPrecioMayor.getText()),
+            Integer.parseInt(this.txtCantidadProducto.getText()));
             
             if(!this.producto.contains(aux)){
                 p.setCodigo(aux.getCodigo());
@@ -421,8 +441,101 @@ public class SistemaVentasController implements Initializable {
         }  
         
     }
+    
+     @FXML
+    private void agregarOrdenDeCompra(ActionEvent event) {
+      Orden o=new Orden(Integer.parseInt(this.txtClienteOrden.getText()), Integer.parseInt(this.txtProductoOrden.getText()),
+      Integer.parseInt(this.txtDiasEnvio.getText()), Double.parseDouble(this.txtPrecioEnvio.getText()),
+      this.txtTipoEnvio.getText(), this.txtEstado.getText());
+      
+        if(!this.orden.contains(o)){
+            this.orden.add(o);
+            this.tblOrdenDeCompra.setItems(orden);
+        }
+        this.txtClienteOrden.setText("");
+        this.txtProductoOrden.setText("");
+        this.txtDiasEnvio.setText("");
+        this.txtPrecioEnvio.setText("");
+        this.txtTipoEnvio.setText("");
+        this.txtEstado.setText("");
+    }
+    @FXML
+    private void seleccionarOrdenDeCompra(javafx.scene.input.MouseEvent event) {
+         Orden o=this.tblOrdenDeCompra.getSelectionModel().getSelectedItem();
+        if(o !=null){
+            this.txtClienteOrden.setText(o.getCliente() +"");
+            this.txtProductoOrden.setText(o.getpIdProducto() +"");
+            this.txtDiasEnvio.setText(o.getDiasEnvio() +"");
+            this.txtPrecioEnvio.setText(o.getPrecioEnvio() +"");
+            this.txtTipoEnvio.setText(o.getTipoEnvio());
+            this.txtEstado.setText(o.getEstado());
+            
+        }
+    }
+
+    @FXML
+    private void modificarOrdenDeCompra(ActionEvent event) {
+       Orden o=this.tblOrdenDeCompra.getSelectionModel().getSelectedItem();
+        if(o ==null){
+           Alert alert=new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setTitle("Error");
+            alert.setContentText("Por favor seleccionar un producto");
+            alert.showAndWait(); 
+        }else{
+            Orden aux=new Orden(Integer.parseInt(this.txtClienteOrden.getText()), Integer.parseInt(this.txtProductoOrden.getText()),
+      Integer.parseInt(this.txtDiasEnvio.getText()), Double.parseDouble(this.txtPrecioEnvio.getText()),
+      this.txtTipoEnvio.getText(), this.txtEstado.getText());
+            
+            if(!this.orden.contains(aux)){
+                o.setpCliente(aux.getpCliente());
+                o.setpIdProducto(aux.getpIdProducto());
+                o.setDiasEnvio(aux.getDiasEnvio());
+                o.setPrecioEnvio(aux.getPrecioEnvio());
+                o.setTipoEnvio(aux.getTipoEnvio());
+                o.setEstado(aux.getEstado());
+                   
+                   this.tblOrdenDeCompra.refresh();
+                   Alert alert=new Alert(Alert.AlertType.INFORMATION);
+                    alert.setHeaderText(null);
+                    alert.setTitle("Error");
+                    alert.setContentText("Producto modificado");
+                    alert.showAndWait();
+                
+            }
+        }
+        this.txtClienteOrden.setText("");
+        this.txtProductoOrden.setText("");
+        this.txtDiasEnvio.setText("");
+        this.txtPrecioEnvio.setText("");
+        this.txtTipoEnvio.setText("");
+        this.txtEstado.setText("");
+         
+    }
+
+    @FXML
+    private void eliminarOrdenDeCompra(ActionEvent event) {
+         Orden o=this.tblOrdenDeCompra.getSelectionModel().getSelectedItem();
+        if(o ==null){
+           Alert alert=new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setTitle("Error");
+            alert.setContentText("Por favor seleccionar un producto");
+            alert.showAndWait(); 
+        }else{
+            this.orden.remove(o);
+            this.tblOrdenDeCompra.refresh();
+            
+            Alert alert=new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText(null);
+            alert.setTitle("Error");
+            alert.setContentText("Producto eliminado");
+            alert.showAndWait();
+        }  
+    }
+    
     /*
-    Empieza el control para los botones superiores y los paneles*/
+    Empieza el control para los botones superiores para hacer visibles los paneles que contienen los datos*/
     @FXML
     private void productoClicked(ActionEvent event) {
         if (productoPanel.isVisible()) {
@@ -459,7 +572,6 @@ public class SistemaVentasController implements Initializable {
         ordenPanel.setVisible(false);
     }
     
-
     @FXML
     private void clienteEmpresaClicked(ActionEvent event) {
         if (clienteEmpresaPanel.isVisible()) {
@@ -471,7 +583,4 @@ public class SistemaVentasController implements Initializable {
         productoPanel.setVisible(false);
         ordenPanel.setVisible(false);
     }
-
-   
-
 }

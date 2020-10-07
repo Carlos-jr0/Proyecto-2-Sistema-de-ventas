@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #052e66;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="ventas.ControllerUsuario">
+   <children>
+      <Label layoutX="147.0" layoutY="117.0" text="Usuario:" textFill="#f2eded" />
+      <Label layoutX="147.0" layoutY="183.0" text="Contraseña:" textFill="#f5eeee" />
+      <TextField fx:id="txtUsuario" layoutX="236.0" layoutY="113.0" />
+      <PasswordField fx:id="txtContrasenia" layoutX="236.0" layoutY="179.0" />
+      <Button layoutX="285.0" layoutY="255.0" mnemonicParsing="false" onAction="#validarUsuario" text="Validar" />
+   </children>
+</AnchorPane>

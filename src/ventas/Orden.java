@@ -9,7 +9,7 @@ import java.util.Date;
  */
 public class Orden {
        private int id;
-       private Cliente cliente;
+       private Cliente cliente; 
        private ItemOrden item1;
        private ItemOrden item2;
        private Date fechaOrden;
@@ -17,27 +17,10 @@ public class Orden {
        private double total;
        private String tipoEnvio;
        private String estado;
+       private int pCliente;
+       private int pIdProducto;
        private static int sigIdOrden=1;
        private int diasEnvio;
-
-    public Orden() {
-        this.id=sigIdOrden++;
-        this.total=0.0;
-        this.fechaOrden=new Date();
-    }
-
-    public Orden(Date pFecha) {
-        this.id=sigIdOrden++;
-        this.total=0.0;
-        this.fechaOrden=pFecha;
-    }
-    
-    public Orden(int pCliente, Date pFecha){
-        
-    }
-    public void getTotalOrden(){
-        
-    }
 
     public int getId() {
         return id;
@@ -126,7 +109,60 @@ public class Orden {
     public void setDiasEnvio(int diasEnvio) {
         this.diasEnvio = diasEnvio;
     }
+
+    public int getpCliente() {
+        return pCliente;
+    }
+
+    public void setpCliente(int pCliente) {
+        this.pCliente = pCliente;
+    }
+
+    public int getpIdProducto() {
+        return pIdProducto;
+    }
+
+    public void setpIdProducto(int pIdProducto) {
+        this.pIdProducto = pIdProducto;
+    }
     
     
+    
+    public Orden() {
+        this.id=sigIdOrden++;
+        this.total=0.0;
+        this.fechaOrden=new Date();
+    }
+
+    public Orden(Date pFecha) {
+        this.id=sigIdOrden++;
+        this.total=0.0;
+        this.fechaOrden=pFecha;
+        
+    }
+    
+    public Orden(int pCliente, Date pFecha){
+        this.id=sigIdOrden++;
+        this.total=0.0;
+        this.fechaOrden=pFecha;
+        
+        
+    }
+    
+    public Orden(int pCliente, int pIdProducto, int diasEnvio, double precioEnvio, String tipoEnvio, String estado){
+        this.id=sigIdOrden++;
+        this.total=0.0;
+        this.fechaOrden=new Date();
+        this.pCliente=pCliente;
+        this.pIdProducto=pIdProducto;
+        this.diasEnvio=diasEnvio;
+        this.precioEnvio=precioEnvio;
+        this.precioEnvio=precioEnvio;
+        this.tipoEnvio=tipoEnvio;
+        this.estado=estado;
+    }
+    public double getTotalOrden(){
+        return (item1.getProducto().getPrecioUnitario());
+    }
        
 }

@@ -40,7 +40,7 @@
             </HBox>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="clienteIndividualPanel" layoutY="78.0" prefHeight="375.0" prefWidth="600.0" style="-fx-background-color: #052e66;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <AnchorPane fx:id="clienteIndividualPanel" layoutY="78.0" prefHeight="375.0" prefWidth="600.0" style="-fx-background-color: #052e66;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
             <Label layoutX="45.0" layoutY="34.0" text="Nombre: " textFill="#f8f7fc" />
             <Label layoutX="46.0" layoutY="75.0" text="Apellido:" textFill="#f8f7fc" />
@@ -55,7 +55,7 @@
             <Button layoutX="209.0" layoutY="188.0" mnemonicParsing="false" onAction="#eliminarClientesIndividuales" text="Eliminar" />
             <TableView fx:id="tblClientesIndividuales" layoutX="42.0" layoutY="224.0" onMouseClicked="#seleccionar" prefHeight="136.0" prefWidth="523.0">
                <columns>
-                  <TableColumn fx:id="columId" prefWidth="58.0" text="ID" />
+                  <TableColumn fx:id="columIdI" prefWidth="58.0" text="ID" />
                   <TableColumn fx:id="columNombre" prefWidth="105.0" text="Nombre" />
                   <TableColumn fx:id="columApellido" prefWidth="110.0" text="Apellido" />
                   <TableColumn fx:id="columDireccion" prefWidth="124.0" text="Direccion" />
@@ -80,7 +80,7 @@
             <Button layoutX="214.0" layoutY="201.0" mnemonicParsing="false" onAction="#eliminarProductos" text="Eliminar" />
             <TableView fx:id="tblProducto" layoutX="42.0" layoutY="236.0" onMouseClicked="#seleccionarTablaProducto" prefHeight="125.0" prefWidth="530.0">
                <columns>
-                  <TableColumn fx:id="columId" prefWidth="67.0" text="ID" />
+                  <TableColumn fx:id="columIdE" prefWidth="67.0" text="ID" />
                   <TableColumn fx:id="columCodigoProducto" prefWidth="71.0" text="Codigo" />
                   <TableColumn fx:id="columNombreProducto" prefWidth="79.0" text="Nombre" />
                   <TableColumn fx:id="columPrecioUnitario" prefWidth="90.0" text="Precio Unitario" />
@@ -92,32 +92,34 @@
       </AnchorPane>
       <AnchorPane fx:id="ordenPanel" layoutY="81.0" prefHeight="375.0" prefWidth="600.0" style="-fx-background-color: #052e66;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <TextField layoutX="163.0" layoutY="32.0" />
-            <TextField layoutX="163.0" layoutY="63.0" />
-            <TextField layoutX="163.0" layoutY="94.0" />
-            <TextField layoutX="163.0" layoutY="125.0" />
-            <TextField layoutX="163.0" layoutY="156.0" />
-            <TextField layoutX="163.0" layoutY="188.0" />
-            <Label layoutX="37.0" layoutY="36.0" prefHeight="17.0" prefWidth="59.0" text="Cliente" textFill="#fcf9f9" />
-            <Label layoutX="35.0" layoutY="67.0" prefHeight="17.0" prefWidth="80.0" text="No. de Orden:" textFill="#fcf9f9" />
-            <Label layoutX="35.0" layoutY="98.0" prefHeight="17.0" prefWidth="91.0" text="Fecha de envio:" textFill="#fcf9f9" />
+            <TextField fx:id="txtClienteOrden" layoutX="163.0" layoutY="32.0" />
+            <TextField fx:id="txtProductoOrden" layoutX="163.0" layoutY="63.0" />
+            <TextField fx:id="txtDiasEnvio" layoutX="163.0" layoutY="94.0" />
+            <TextField fx:id="txtPrecioEnvio" layoutX="163.0" layoutY="125.0" />
+            <TextField fx:id="txtTipoEnvio" layoutX="163.0" layoutY="156.0" />
+            <TextField fx:id="txtEstado" layoutX="163.0" layoutY="188.0" />
+            <Label layoutX="37.0" layoutY="36.0" prefHeight="17.0" prefWidth="59.0" text="Cliente:" textFill="#fcf9f9" />
+            <Label layoutX="35.0" layoutY="67.0" prefHeight="17.0" prefWidth="80.0" text="Producto:" textFill="#fcf9f9" />
+            <Label layoutX="35.0" layoutY="98.0" prefHeight="17.0" prefWidth="91.0" text="Dias de envio:" textFill="#fcf9f9" />
             <Label layoutX="35.0" layoutY="129.0" prefHeight="17.0" prefWidth="91.0" text="Precio de envio:" textFill="#fcf9f9" />
             <Label layoutX="35.0" layoutY="160.0" prefHeight="17.0" prefWidth="91.0" text="Tipo de envio:" textFill="#fcf9f9" />
-            <Label layoutX="35.0" layoutY="192.0" prefHeight="17.0" prefWidth="59.0" text="Total:" textFill="#fcf9f9" />
-            <TableView layoutX="38.0" layoutY="230.0" prefHeight="125.0" prefWidth="530.0">
+            <Label layoutX="35.0" layoutY="192.0" prefHeight="17.0" prefWidth="59.0" text="Estado:" textFill="#fcf9f9" />
+            <TableView fx:id="tblOrdenDeCompra" layoutX="38.0" layoutY="230.0" onMouseClicked="#seleccionarOrdenDeCompra" prefHeight="125.0" prefWidth="530.0">
                <columns>
-                  <TableColumn prefWidth="37.0" text="ID" />
-                  <TableColumn prefWidth="69.0" text="Cliente" />
-                  <TableColumn prefWidth="73.0" text="No. orden" />
-                  <TableColumn prefWidth="94.0" text="Fecha de envio" />
-                  <TableColumn text="Precio envio" />
-                  <TableColumn prefWidth="84.0" text="Tipo de envio" />
-                  <TableColumn prefWidth="90.0" text="Total a pagar" />
+                  <TableColumn fx:id="columnaId" prefWidth="37.0" text="ID" />
+                  <TableColumn fx:id="columnaClienteOrden" prefWidth="48.0" text="Cliente" />
+                  <TableColumn fx:id="columnaProductoOrden" prefWidth="59.0" text="Producto" />
+                  <TableColumn fx:id="columnaDiasEnvio" prefWidth="70.0" text="Dias envio" />
+                  <TableColumn fx:id="columnaPrecioEnvio" prefWidth="82.0" text="Precio envio" />
+                  <TableColumn fx:id="columnaTipoEnvio" prefWidth="70.0" text="Tipo envio" />
+                  <TableColumn fx:id="columnaEstado" prefWidth="54.0" text="Estado" />
+                  <TableColumn fx:id="columnaFecha" prefWidth="63.0" text="Fecha" />
+                  <TableColumn fx:id="columnaTotal" prefWidth="46.0" text="Total" />
                </columns>
             </TableView>
-            <Button layoutX="338.0" layoutY="188.0" mnemonicParsing="false" text="Agregar" />
-            <Button layoutX="414.0" layoutY="188.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="74.0" text="Modificar" />
-            <Button layoutX="506.0" layoutY="188.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="59.0" text="Eliminar" />
+            <Button layoutX="338.0" layoutY="188.0" mnemonicParsing="false" onAction="#agregarOrdenDeCompra" text="Agregar" />
+            <Button layoutX="414.0" layoutY="188.0" mnemonicParsing="false" onAction="#modificarOrdenDeCompra" prefHeight="25.0" prefWidth="74.0" text="Modificar" />
+            <Button layoutX="506.0" layoutY="188.0" mnemonicParsing="false" onAction="#eliminarOrdenDeCompra" prefHeight="25.0" prefWidth="59.0" text="Eliminar" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="clienteEmpresaPanel" layoutX="10.0" layoutY="88.0" prefHeight="375.0" prefWidth="600.0" style="-fx-background-color: #052e66;" visible="false" AnchorPane.leftAnchor="0.0">

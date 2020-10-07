@@ -21,7 +21,15 @@ Documentacion tecnica para la elaboracion del proyecto sistema de ventas:
 
 10. Crear una interfaz grafica de usuario en JavaFx.
 
-11. Clase SistemasVentas(Codigo de GUI).
+11. Clase ValidarUsuario.fxml que servira para ingresar usuario a la interfaz Sistema de Ventas
+-Uso de Label
+-Uso de TextField
+-Uso de PasswordTexfiel
+-Uso de Boton
+
+12. Clase ControllerUsuario para controlar la clase ValidarUsuario
+
+13. Clase SistemasVentas(Codigo de GUI).
 - Uso de Paneles
 - Uso de Botones
 - Uso de HBox
@@ -32,12 +40,17 @@ Documentacion tecnica para la elaboracion del proyecto sistema de ventas:
 - Uso de Columns
 - Uso de TableColumn
 
-12. Clase SistemaVentasController(Controlador par las acciones del interfaz grafica de usuario).
+14. Clase SistemaVentasController(Controlador par las acciones del interfaz grafica de usuario).
 
-13. Clase Ventas(Menu principal para correr el proyecto).
+15. Clase Ventas(Menu principal para correr el proyecto).
 
-14. Crear Clase Producto(Propiedades, constructor y metodo).
+16. Crear Clase Producto(Propiedades, constructor y metodo).
 
-15. Crear Clase Orden(Propiedades, constructores y metodos).
+17. Crear Clase Orden(Propiedades, constructores y metodos).
 
-16. Crear Clase ItemOrden(Propiedades, constructores y metodos).
+18. Crear Clase ItemOrden(Propiedades, constructores y metodos).
+
+19. Funciones principales de la app:
+-Agregar datos
+-Modificar datos
+-Eliminar datos
